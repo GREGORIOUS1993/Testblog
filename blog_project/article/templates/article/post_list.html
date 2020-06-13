@@ -1,0 +1,38 @@
+{% extends 'article/base.html' %}
+
+{% block content %}
+
+<h2>Homepage</h2>
+
+<div class="centerstage">
+	<ol>
+
+	{% for post in post_list %}
+
+		<div class="post">
+			<li>
+				<h1>
+					<a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a>
+				</h1>
+			</li>
+
+				<div class="date">
+					<p>Published on: {{ post.published_date |date:"d-m-Y" }}</p>
+				</div>
+
+				<img style="width: 20em; height: 20em" src="{{post.image.url}}" alt="Hello">
+
+				<br>
+				<br>
+
+			<a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.approve_comments.count }}</a>
+		</div>
+
+
+		<br><br><br>
+
+	{% endfor %}
+ </ol>
+</div>
+
+ {% endblock %}
