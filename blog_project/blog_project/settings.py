@@ -24,7 +24,7 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'article/templates/article')
 SECRET_KEY = '^pxi(li#hiq0ti2)+8(ya1ynle3&p@rdg3bmkte9sdpi)-mlsk'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -42,7 +42,7 @@ INSTALLED_APPS = [
 
     'article',
     'authenticate',
-    'social_django',
+   
 ]
 
 MIDDLEWARE = [
@@ -53,7 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',  
-    'social_django.middleware.SocialAuthExceptionMiddleware',   # <--
+    
 ]
 
 ROOT_URLCONF = 'blog_project.urls'
@@ -72,8 +72,7 @@ TEMPLATES = [
 
 
 
-                'social_django.context_processors.backends',  # <--
-                'social_django.context_processors.login_redirect', # <--
+              
             ],
         },
     },
@@ -144,26 +143,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 
-
-AUTHENTICATION_BACKENDS = (
-
-    'social_core.backends.github.GithubOAuth2',
-  
-    'social_core.backends.facebook.FacebookOAuth2',
-
-    'django.contrib.auth.backends.ModelBackend',
-)
-#SITE_ID=1
-
-
-
-SOCIAL_AUTH_FACEBOOK_KEY = '629994744394125'  # App ID
-SOCIAL_AUTH_FACEBOOK_SECRET = '5b1230d84d7d0df3cd2a7c99673f0ab0'  # App Secret
-
-
-
-SOCIAL_AUTH_GITHUB_KEY = '9423db26318716eba494'
-SOCIAL_AUTH_GITHUB_SECRET = '073603c591abf8c1329e2d4d37958ae808fd454d'
 
 
 
